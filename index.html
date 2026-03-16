@@ -1,0 +1,886 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amani CBO · beauty rooted in Mt. Elgon</title>
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* === INTEGRATED BEAUTIFUL CSS (nature palette, organic shapes) === */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: #1e2f23;
+        background-color: #faf9f5;
+        line-height: 1.6;
+        scroll-behavior: smooth;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+
+      :root {
+        --deep-forest: #1a3f2b;
+        --earth-green: #2b5e3b;
+        --spring-green: #5b8c5a;
+        --bark-brown: #7b4f3a;
+        --sand: #efe6d7;
+        --cream: #f8f0e3;
+        --clay: #c5714a;
+        --golden-light: #f4c28b;
+        --border-radius-card: 32px;
+        --shadow: 0 25px 40px -15px rgba(30, 40, 20, 0.25);
+      }
+
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* header — organic glass */
+      header {
+        background: rgba(255, 250, 240, 0.75);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 8px 20px rgba(60, 45, 30, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        border-bottom: 1px solid rgba(123, 79, 58, 0.15);
+      }
+
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0.8rem 2rem;
+      }
+
+      .logo a {
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.9rem;
+        font-weight: 800;
+        color: var(--deep-forest);
+        text-decoration: none;
+        letter-spacing: -1px;
+      }
+
+      .logo span {
+        color: var(--clay);
+        background: rgba(245, 222, 179, 0.4);
+        padding: 0.2rem 0.6rem;
+        border-radius: 60px;
+        margin-left: 0.2rem;
+        font-size: 1.5rem;
+      }
+
+      .nav-menu ul {
+        display: flex;
+        list-style: none;
+        gap: 1.8rem;
+        align-items: center;
+      }
+
+      .nav-menu ul li a {
+        text-decoration: none;
+        color: #1e3a2a;
+        font-weight: 600;
+        font-size: 1.05rem;
+        border-bottom: 2px solid transparent;
+        transition: 0.2s;
+        padding-bottom: 4px;
+      }
+
+      .nav-menu ul li a:hover {
+        border-bottom-color: var(--clay);
+        color: var(--bark-brown);
+      }
+
+      /* dropdown beauty */
+      .dropdown {
+        position: relative;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 35px;
+        left: -40px;
+        background: rgba(255, 249, 235, 0.98);
+        backdrop-filter: blur(10px);
+        width: 280px;
+        border-radius: 28px;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        border: 1px solid #e2cfb5;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        z-index: 1000;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-category {
+        font-size: 0.9rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        color: var(--clay);
+        margin: 1rem 0 0.2rem 0;
+        border-bottom: 1px dashed #c7ad8d;
+        padding-bottom: 0.2rem;
+      }
+
+      .dropdown-content a {
+        display: block;
+        padding: 0.5rem 0.5rem;
+        border-radius: 50px;
+        color: #2d4b32;
+        text-decoration: none;
+        font-weight: 500;
+      }
+
+      .dropdown-content a:hover {
+        background: #e1cfb5;
+        color: #1d3a23;
+      }
+
+      .btn-donate {
+        background: var(--clay);
+        color: white !important;
+        padding: 0.75rem 1.8rem;
+        border-radius: 40px;
+        font-weight: 700;
+        letter-spacing: 0.3px;
+        text-decoration: none;
+        box-shadow: 0 10px 12px -8px #b26b42;
+        transition: all 0.2s;
+      }
+
+      .btn-donate:hover {
+        background: #a5532b;
+        transform: scale(1.02);
+      }
+
+      .mobile-menu {
+        display: none;
+        font-size: 2.5rem;
+        cursor: pointer;
+      }
+
+      /* hero — poetic beauty */
+      .hero {
+        background:
+          linear-gradient(125deg, #1f3b2c 0%, #34623c 70%),
+          url("data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 preserveAspectRatio=%22none%22><polygon points=%220,0 100,0 80,100 0,100%22 fill=%22%23c5714a33%22 /></svg>");
+        background-blend-mode: overlay;
+        background-size: cover, auto;
+        color: white;
+        padding: 6rem 2rem;
+        text-align: center;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+      }
+
+      .hero-why {
+        font-size: 1rem;
+        letter-spacing: 5px;
+        text-transform: uppercase;
+        background: rgba(255, 215, 150, 0.2);
+        display: inline-block;
+        padding: 0.4rem 1.5rem;
+        border-radius: 60px;
+        backdrop-filter: blur(4px);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4.5rem);
+        max-width: 1000px;
+        margin: 0 auto 1.2rem;
+        line-height: 1.2;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        border-radius: 60px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: 0.2s;
+      }
+
+      .btn-primary {
+        background: var(--golden-light);
+        color: #1f3f2a;
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .btn-primary:hover {
+        background: #f5b65c;
+      }
+      .btn-secondary:hover {
+        background: rgba(255, 255, 240, 0.2);
+      }
+
+      /* sections */
+      .section-title {
+        font-size: 2.8rem;
+        color: var(--deep-forest);
+        position: relative;
+        margin-bottom: 2rem;
+      }
+      .section-title.center {
+        text-align: center;
+      }
+      .why-badge {
+        background: var(--sand);
+        color: var(--bark-brown);
+        border-radius: 60px;
+        padding: 0.3rem 1.5rem;
+        font-weight: 600;
+        letter-spacing: 2px;
+        font-size: 0.9rem;
+        display: inline-block;
+        margin-bottom: 1rem;
+        border: 1px solid #dbbc97;
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .problem-stats {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.8rem;
+        margin-top: 2rem;
+      }
+
+      .problem-stat h3 {
+        font-size: 3rem;
+        color: var(--clay);
+        line-height: 1;
+      }
+
+      .impact-dashboard {
+        background: linear-gradient(145deg, #1e462f, #123220);
+        border-radius: 80px 80px 40px 40px;
+        padding: 4rem 0;
+        color: white;
+      }
+      .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        gap: 2rem;
+        text-align: center;
+      }
+      .dashboard-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--golden-light);
+      }
+
+      .program-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+        margin: 3rem 0;
+      }
+      .program-card {
+        background: white;
+        border-radius: 48px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: transform 0.3s;
+      }
+      .program-card:hover {
+        transform: translateY(-10px);
+      }
+      .program-why {
+        background: var(--sand);
+        padding: 0.8rem 2rem;
+        font-weight: 700;
+        color: var(--bark-brown);
+        font-size: 0.9rem;
+      }
+      .program-image {
+        height: 180px;
+        background-size: cover;
+        background-position: center;
+      }
+      .program-content {
+        padding: 2rem;
+      }
+      .program-meta {
+        display: flex;
+        gap: 1rem;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+      }
+      .program-cost {
+        background: #f2ebe1;
+        border-radius: 100px;
+        padding: 0.6rem 1rem;
+        margin: 1.2rem 0;
+        font-weight: 600;
+        color: #3a5736;
+      }
+
+      .partner-strip {
+        background: #dccfbe;
+        padding: 2rem 0;
+      }
+      .partner-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2.5rem;
+        font-weight: 700;
+        color: #3e2f20;
+        opacity: 0.8;
+        font-size: 1.2rem;
+      }
+
+      /* footer */
+      footer {
+        background: #1e3629;
+        color: #ece2d5;
+        padding: 4rem 2rem 2rem;
+        border-radius: 60px 60px 0 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-col h4 {
+        color: var(--golden-light);
+        margin-bottom: 1.2rem;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li a {
+        color: #ebdcc9;
+        text-decoration: none;
+        line-height: 2;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 4rem;
+        border-top: 1px solid #526a47;
+        padding-top: 2rem;
+      }
+
+      /* === INTERACTIVE JS BEAUTY === */
+      .current-year {
+        font-weight: 600;
+        background: #56794b;
+        padding: 0.2rem 0.8rem;
+        border-radius: 40px;
+      }
+
+      /* mobile */
+      @media (max-width: 950px) {
+        .nav-menu ul {
+          display: none;
+          flex-direction: column;
+          background: #fef7eb;
+          position: absolute;
+          top: 75px;
+          right: 2rem;
+          border-radius: 40px;
+          padding: 2rem;
+          box-shadow: var(--shadow);
+        }
+        .nav-menu ul.active {
+          display: flex;
+        }
+        .mobile-menu {
+          display: block;
+        }
+        .problem-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* nature leaf decoration */
+      .hero::after {
+        content: "🌿🌱🍂";
+        font-size: 2rem;
+        opacity: 0.4;
+        position: relative;
+        bottom: -40px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">AMANI<span>CBO</span></a>
+        </div>
+        <nav class="nav-menu">
+          <ul id="mainNav">
+            <li><a href="website.html">Home</a></li>
+            <li><a href="About us.html">About</a></li>
+            <li class="dropdown">
+              <a href="programs.html">Programs ▼</a>
+              <div class="dropdown-content">
+                <div class="dropdown-category">🌱 AGRICULTURE</div>
+                <a href="programs.html#bamboo">Bamboo Enterprise</a>
+                <a href="programs.html#farming">Sustainable Farming</a>
+                <a href="programs.html#market">Market Access</a>
+                <div class="dropdown-category">📚 EDUCATION</div>
+                <a href="programs.html#literacy">Early Grade Literacy</a>
+                <a href="programs.html#digital">Digital Learning</a>
+                <div class="dropdown-category">🕊️ PEACEBUILDING</div>
+                <a href="programs.html#dialogue">Community Dialogue</a>
+                <a href="programs.html#sports">Sports for Peace</a>
+                <div class="dropdown-category">🌳 ENVIRONMENT</div>
+                <a href="programs.html#trees">Reforestation</a>
+                <a href="programs.html#cooking">Clean Cooking</a>
+                <div class="dropdown-category">🏥 HEALTH</div>
+                <a href="programs.html#hiv">HIV/AIDS Prevention</a>
+              </div>
+            </li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </nav>
+        <a href="get-involved.html#donate" class="btn-donate">Donate</a>
+        <div class="mobile-menu" id="mobileMenuBtn">☘️</div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-container">
+        <div class="hero-why">WHY AMANI EXISTS</div>
+        <h1>40% of children in Mt. Elgon cannot read a single sentence.</h1>
+        <p>
+          Land conflict left families torn apart. Deforestation threatens
+          livelihoods. HIV created a generation of orphans. We exist because
+          communities need hope, skills, and peace to rebuild.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="about.html" class="btn btn-primary">Our Story</a>
+          <a
+            href="get-involved.html"
+            class="btn btn-secondary"
+            style="background: transparent; border-color: white; color: white"
+            >Join the Solution</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Statement -->
+    <section class="problem-section" style="padding: 4rem 0">
+      <div class="container">
+        <span class="why-badge">THE CRISIS</span>
+        <div class="problem-grid">
+          <div>
+            <h2 class="section-title">
+              Mt. Elgon's children deserve more than survival
+            </h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem">
+              Behind every statistic is a child, a family, a dream deferred.
+            </p>
+            <div class="problem-stats">
+              <div class="problem-stat">
+                <h3>40%</h3>
+                <p>Literacy rate in rural areas</p>
+              </div>
+              <div class="problem-stat">
+                <h3>500+</h3>
+                <p>Families displaced</p>
+              </div>
+              <div class="problem-stat">
+                <h3>70%</h3>
+                <p>Deforestation since 2000</p>
+              </div>
+              <div class="problem-stat">
+                <h3>15,000+</h3>
+                <p>Affected by HIV/AIDS</p>
+              </div>
+            </div>
+          </div>
+          <div
+            style="
+              background: #b6cfb0;
+              height: 400px;
+              border-radius: 80px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: #2e5535;
+              box-shadow: inset 0 0 0 4px #ffe3cd;
+            "
+          >
+            📸 Mt. Elgon sunrise
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Theory of change -->
+    <section style="background: white; padding: 3rem 0">
+      <div class="container">
+        <span class="why-badge">THE BRIDGE</span>
+        <h2 class="section-title">How Amani builds lasting change</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+          "
+        >
+          <div style="text-align: center; padding: 2rem">
+            <div style="font-size: 4rem">🌱</div>
+            <h3>INPUT</h3>
+            <p>Training, dialogue, seedlings, books</p>
+          </div>
+          <div
+            style="
+              text-align: center;
+              padding: 2rem;
+              border-left: 2px dashed #b38b60;
+            "
+          >
+            <div style="font-size: 4rem">⚡</div>
+            <h3>ACTIVITIES</h3>
+            <p>Literacy, peace meets, tree planting</p>
+          </div>
+          <div style="text-align: center; padding: 2rem">
+            <div style="font-size: 4rem">🌟</div>
+            <h3>OUTCOME</h3>
+            <p>Reading, reconciliation, restored land</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Impact Dashboard -->
+    <section class="impact-dashboard">
+      <div class="container">
+        <h2 class="section-title center" style="color: white">
+          Proof that change is possible
+        </h2>
+        <div class="dashboard-grid">
+          <div class="dashboard-item">
+            <div class="dashboard-number">500K+</div>
+            <div class="dashboard-label">Trees Planted</div>
+          </div>
+          <div class="dashboard-item">
+            <div class="dashboard-number">15K+</div>
+            <div class="dashboard-label">HIV Prevention</div>
+          </div>
+          <div class="dashboard-item">
+            <div class="dashboard-number">10K+</div>
+            <div class="dashboard-label">Peace Participants</div>
+          </div>
+          <div class="dashboard-item">
+            <div class="dashboard-number">450+</div>
+            <div class="dashboard-label">Children Mentored</div>
+          </div>
+          <div class="dashboard-item">
+            <div class="dashboard-number">100+</div>
+            <div class="dashboard-label">Orphans Supported</div>
+          </div>
+          <div class="dashboard-item">
+            <div class="dashboard-number">22</div>
+            <div class="dashboard-label">Years of Service</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Program cards -->
+    <section style="padding: 4rem 0">
+      <div class="container">
+        <span class="why-badge">WHAT WE DO</span>
+        <h2 class="section-title">Our programs address root causes</h2>
+        <div class="program-grid">
+          <div class="program-card">
+            <div class="program-why">Why: 40% literacy steals futures</div>
+            <div class="program-image" style="background: #44633e"></div>
+            <div class="program-content">
+              <h3>Education & Literacy</h3>
+              <p>AI-powered reading assessment (Nyansapo).</p>
+              <div class="program-meta">
+                <span>📚 12 schools</span><span>👥 40+ teachers</span>
+              </div>
+              <div class="program-cost">$12 = one child's literacy/year</div>
+              <a
+                href="programs.html#education"
+                class="btn btn-primary"
+                style="width: 100%"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div class="program-card">
+            <div class="program-why">Why: Land conflict tore families</div>
+            <div class="program-image" style="background: #8f6b4f"></div>
+            <div class="program-content">
+              <h3>Peacebuilding & Reconciliation</h3>
+              <p>Dialogue, sports, early warning.</p>
+              <div class="program-meta">
+                <span>🕊️ 47 dialogues</span><span>⚽ 8 tournaments</span>
+              </div>
+              <div class="program-cost">$25 funds a peace dialogue</div>
+              <a
+                href="programs.html#peace"
+                class="btn btn-primary"
+                style="width: 100%"
+                >Learn More</a
+              >
+            </div>
+          </div>
+          <div class="program-card">
+            <div class="program-why">Why: Deforestation means drought</div>
+            <div class="program-image" style="background: #315f3c"></div>
+            <div class="program-content">
+              <h3>Environment & Livelihoods</h3>
+              <p>500k+ trees, bamboo, clean cooking.</p>
+              <div class="program-meta">
+                <span>🌳 500k trees</span><span>🎋 bamboo co-ops</span>
+              </div>
+              <div class="program-cost">$5 = plants 50 trees</div>
+              <a
+                href="programs.html#environment"
+                class="btn btn-primary"
+                style="width: 100%"
+                >Learn More</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story + Partner strip -->
+    <section style="background: var(--cream); padding: 3rem 0">
+      <div class="container">
+        <span class="why-badge">ONE STORY</span>
+        <h2 class="section-title center">From conflict to classroom</h2>
+        <div style="font-size: 2rem; color: var(--bark-brown)">
+          “I never held a book until I was 12.”
+        </div>
+        <p style="font-size: 1.3rem">— Chebet, now a volunteer teacher</p>
+        <a
+          href="impact.html"
+          class="btn btn-accent"
+          style="
+            background: var(--clay);
+            color: white;
+            padding: 0.8rem 2.4rem;
+            border-radius: 60px;
+            display: inline-block;
+            margin: 1.5rem 0;
+          "
+          >Read More Stories</a
+        >
+      </div>
+    </section>
+    <section class="partner-strip">
+      <div class="partner-grid">
+        <span>USAID</span><span>ACT Kenya</span><span>KEFRI</span
+        ><span>INBAR</span><span>Sun24 Solar</span><span>Bungoma County</span
+        ><span>ADS-Western</span>
+      </div>
+    </section>
+
+    <!-- Urgent CTA -->
+    <section
+      style="
+        background: linear-gradient(130deg, #7b4f3a, #1f4d2e);
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+      "
+    >
+      <h2 style="font-size: 2.8rem">40% illiteracy won't fix itself</h2>
+      <p style="font-size: 1.3rem; max-width: 700px; margin: 2rem auto">
+        Every day a child waits, another future is delayed. Join us.
+      </p>
+      <div
+        style="
+          display: flex;
+          gap: 1rem;
+          justify-content: center;
+          flex-wrap: wrap;
+        "
+      >
+        <a
+          href="get-involved.html#donate"
+          class="btn"
+          style="background: white; color: #4f392b"
+          >Donate Now</a
+        >
+        <a
+          href="get-involved.html#volunteer"
+          class="btn btn-secondary"
+          style="border-color: white"
+          >Volunteer</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Amani CBO</h4>
+          <ul>
+            <li><a href="#">Our Story</a></li>
+            <li><a href="#">Vision</a></li>
+            <li><a href="#">Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="#">Education</a></li>
+            <li><a href="#">Peace</a></li>
+            <li><a href="#">Environment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="#">Donate</a></li>
+            <li><a href="#">Volunteer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>Kopsiro, Bungoma</li>
+            <li>amanicbokops@yahoo.com</li>
+            <li>+254 721 607 597</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>
+          &copy; <span class="current-year" id="dynamicYear">2025</span> Amani
+          Community Based Organization.
+        </p>
+        <p style="margin-top: 1rem">
+          🌿 youth-driven · community-led · since 2002
+        </p>
+      </div>
+    </footer>
+
+    <!-- INTEGRATED BEAUTIFUL JAVA (JavaScript) -->
+    <script>
+      (function () {
+        // 1. Mobile menu toggle with elegance
+        const mobileBtn = document.getElementById("mobileMenuBtn");
+        const navUl = document.querySelector("#mainNav");
+        if (mobileBtn && navUl) {
+          mobileBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            navUl.classList.toggle("active");
+            // animate icon
+            this.style.transform = navUl.classList.contains("active")
+              ? "rotate(90deg)"
+              : "rotate(0)";
+          });
+          // close when clicking outside (optional)
+          document.addEventListener("click", function (event) {
+            if (
+              !navUl.contains(event.target) &&
+              !mobileBtn.contains(event.target)
+            ) {
+              navUl.classList.remove("active");
+              mobileBtn.style.transform = "rotate(0)";
+            }
+          });
+        }
+
+        // 2. Dynamic year update (beautiful detail)
+        const yearSpan = document.getElementById("dynamicYear");
+        if (yearSpan) {
+          yearSpan.textContent = new Date().getFullYear();
+        }
+
+        // 3. Smooth scroll for all internal anchor links (beauty in navigation)
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            const href = this.getAttribute("href");
+            if (href === "#" || href === "") return;
+            const target = document.querySelector(href);
+            if (target) {
+              e.preventDefault();
+              target.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+
+        // 4. subtle parallax / floating effect on hero (just a playful touch)
+        window.addEventListener("scroll", function () {
+          const hero = document.querySelector(".hero");
+          if (hero) {
+            let scrolled = window.pageYOffset;
+            hero.style.backgroundPositionY = -(scrolled * 0.1) + "px";
+          }
+        });
+
+        // 5. hover sound? no, but we add a small visual feedback to cards
+        console.log("✨ Amani beauty loaded — hope in motion");
+      })();
+    </script>
+    <!-- fallback for old toggle function -->
+    <script>
+      function toggleMenu() {
+        // kept for compatibility, but using modern above
+        document.querySelector(".nav-menu ul")?.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
