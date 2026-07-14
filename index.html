@@ -73,7 +73,7 @@
         justify-content: space-between;
         max-width: 1400px;
         margin: 0 auto;
-        padding: 0.8rem 2rem;
+        padding: 0.6rem 2rem;
       }
 
       .logo a {
@@ -189,18 +189,45 @@
         cursor: pointer;
       }
 
-      /* hero — poetic beauty */
+      /* hero — poetic beauty with background image */
       .hero {
-        background:
-          linear-gradient(125deg, #1f3b2c 0%, #34623c 70%),
-          url("data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22 preserveAspectRatio=%22none%22><polygon points=%220,0 100,0 80,100 0,100%22 fill=%22%23c5714a33%22 /></svg>");
-        background-blend-mode: overlay;
-        background-size: cover, auto;
+        position: relative;
+        overflow: hidden;
         color: white;
         padding: 6rem 2rem;
         text-align: center;
         border-bottom-left-radius: 60px;
         border-bottom-right-radius: 60px;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(125deg, rgba(31, 59, 44, 0.88) 0%, rgba(52, 98, 60, 0.85) 70%);
+        z-index: 1;
+      }
+
+      .hero-container {
+        position: relative;
+        z-index: 2;
       }
 
       .hero-why {
@@ -445,13 +472,16 @@
         display: block;
       }
     </style>
-  </head>
+  <base target="_blank">
+</head>
   <body>
     <!-- Header -->
     <header>
       <div class="header-container">
         <div class="logo">
-          <a href="index.html">AMANI<span>CBO</span></a>
+          <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+            <img src="images/logo/amani-logo.png" alt="Amani CBO - A Partner for Rural Development" style="height: 100px; width: auto;">
+          </a>
         </div>
         <nav class="nav-menu">
           <ul id="mainNav">
@@ -490,6 +520,10 @@
 
     <!-- Hero Section -->
     <section class="hero">
+      <div class="hero-bg">
+        <img src="images/hero/mt-elgon-topography.jpg" alt="Mount Elgon landscape">
+      </div>
+      <div class="hero-overlay"></div>
       <div class="hero-container">
         <div class="hero-why">WHY AMANI EXISTS</div>
         <h1>40% of children in Mt. Elgon cannot read a single sentence.</h1>
