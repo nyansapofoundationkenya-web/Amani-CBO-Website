@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery · Amani CBO</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        font-family: "Open Sans", sans-serif;
+        color: #1e2f23;
+        background-color: #faf9f5;
+        line-height: 1.6;
+      }
+      h1, h2, h3, h4 {
+        font-family: "Montserrat", sans-serif;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      :root {
+        --deep-forest: #1a3f2b;
+        --earth-green: #2b5e3b;
+        --spring-green: #5b8c5a;
+        --bark-brown: #7b4f3a;
+        --sand: #efe6d7;
+        --cream: #f8f0e3;
+        --clay: #c5714a;
+        --golden-light: #f4c28b;
+        --shadow: 0 25px 40px -15px rgba(30, 40, 20, 0.25);
+      }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Header */
+      header {
+        background: rgba(255, 250, 240, 0.75);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 20px rgba(60, 45, 30, 0.08);
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        border-bottom: 1px solid rgba(123, 79, 58, 0.15);
+      }
+      .header-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0.6rem 2rem;
+      }
+      .logo a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+      }
+      .logo img {
+        height: 100px;
+        width: auto;
+      }
+      .nav-menu ul {
+        display: flex;
+        list-style: none;
+        gap: 1.8rem;
+        align-items: center;
+      }
+      .nav-menu ul li a {
+        text-decoration: none;
+        color: #1e3a2a;
+        font-weight: 600;
+        font-size: 1.05rem;
+        border-bottom: 2px solid transparent;
+        transition: 0.2s;
+        padding-bottom: 4px;
+      }
+      .nav-menu ul li a:hover {
+        border-bottom-color: var(--clay);
+        color: var(--bark-brown);
+      }
+      .btn-donate {
+        background: var(--clay);
+        color: white !important;
+        padding: 0.75rem 1.8rem;
+        border-radius: 40px;
+        font-weight: 700;
+        text-decoration: none;
+        box-shadow: 0 10px 12px -8px #b26b42;
+        transition: all 0.2s;
+      }
+      .btn-donate:hover {
+        background: #a5532b;
+        transform: scale(1.02);
+      }
+      .mobile-menu {
+        display: none;
+        font-size: 2.5rem;
+        cursor: pointer;
+      }
+
+      /* Gallery Hero */
+      .gallery-hero {
+        background: linear-gradient(145deg, #1e462f, #123220);
+        color: white;
+        text-align: center;
+        padding: 4rem 2rem;
+        border-bottom-left-radius: 60px;
+        border-bottom-right-radius: 60px;
+      }
+      .gallery-hero h1 {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        margin-bottom: 1rem;
+      }
+      .gallery-hero p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+
+      /* Filter Buttons */
+      .filter-section {
+        padding: 2rem 0;
+        text-align: center;
+      }
+      .filter-btn {
+        background: var(--sand);
+        border: none;
+        padding: 0.6rem 1.5rem;
+        border-radius: 40px;
+        font-family: "Open Sans", sans-serif;
+        font-weight: 600;
+        color: var(--bark-brown);
+        cursor: pointer;
+        margin: 0.3rem;
+        transition: all 0.2s;
+        font-size: 0.95rem;
+      }
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--clay);
+        color: white;
+      }
+
+      /* Gallery Grid */
+      .gallery-section {
+        padding: 2rem 0 4rem;
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+      .gallery-item {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        cursor: pointer;
+        transition: transform 0.3s;
+        aspect-ratio: 4/3;
+        background: #b6cfb0;
+      }
+      .gallery-item:hover {
+        transform: translateY(-8px);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      .gallery-item .overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(26, 63, 43, 0.9));
+        padding: 2rem 1rem 1rem;
+        color: white;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+      }
+      .gallery-item:hover .overlay {
+        transform: translateY(0);
+      }
+      .gallery-item .overlay h4 {
+        font-size: 1rem;
+        margin-bottom: 0.3rem;
+      }
+      .gallery-item .overlay p {
+        font-size: 0.85rem;
+        opacity: 0.9;
+      }
+
+      /* Lightbox */
+      .lightbox {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.92);
+        z-index: 10000;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .lightbox.active {
+        display: flex;
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 80vh;
+        border-radius: 16px;
+        object-fit: contain;
+      }
+      .lightbox-caption {
+        color: white;
+        margin-top: 1rem;
+        font-size: 1.1rem;
+        text-align: center;
+        padding: 0 2rem;
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        color: white;
+        font-size: 3rem;
+        cursor: pointer;
+        background: none;
+        border: none;
+      }
+      .lightbox-nav {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        color: white;
+        font-size: 3rem;
+        cursor: pointer;
+        background: rgba(255,255,255,0.1);
+        border: none;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .lightbox-prev { left: 20px; }
+      .lightbox-next { right: 20px; }
+
+      /* Footer */
+      footer {
+        background: #1e3629;
+        color: #ece2d5;
+        padding: 4rem 2rem 2rem;
+        border-radius: 60px 60px 0 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .footer-col h4 {
+        color: var(--golden-light);
+        margin-bottom: 1.2rem;
+      }
+      .footer-col ul {
+        list-style: none;
+      }
+      .footer-col ul li a {
+        color: #ebdcc9;
+        text-decoration: none;
+        line-height: 2;
+      }
+      .footer-bottom {
+        text-align: center;
+        margin-top: 4rem;
+        border-top: 1px solid #526a47;
+        padding-top: 2rem;
+      }
+      .current-year {
+        font-weight: 600;
+        background: #56794b;
+        padding: 0.2rem 0.8rem;
+        border-radius: 40px;
+      }
+
+      @media (max-width: 950px) {
+        .nav-menu ul { display: none; }
+        .mobile-menu { display: block; }
+        .gallery-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        }
+      }
+    </style>
+  <base target="_blank">
+</head>
+  <body>
+    <!-- Header -->
+    <header>
+      <div class="header-container">
+        <div class="logo">
+          <a href="index.html">
+            <img src="images/logo/amani-logo.png" alt="Amani CBO Logo">
+          </a>
+        </div>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="programs.html">Programs</a></li>
+            <li><a href="impact.html">Impact</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </nav>
+        <a href="get-involved.html#donate" class="btn-donate">Donate</a>
+        <div class="mobile-menu">☘️</div>
+      </div>
+    </header>
+
+    <!-- Gallery Hero -->
+    <section class="gallery-hero">
+      <h1>Our Gallery</h1>
+      <p>Capturing moments of impact, hope, and transformation across Mt. Elgon communities.</p>
+    </section>
+
+    <!-- Filter Buttons -->
+    <section class="filter-section">
+      <div class="container">
+        <button class="filter-btn active" onclick="filterGallery('all')">All Photos</button>
+        <button class="filter-btn" onclick="filterGallery('education')">Education</button>
+        <button class="filter-btn" onclick="filterGallery('peace')">Peacebuilding</button>
+        <button class="filter-btn" onclick="filterGallery('environment')">Environment</button>
+        <button class="filter-btn" onclick="filterGallery('agriculture')">Agriculture</button>
+        <button class="filter-btn" onclick="filterGallery('team')">Team</button>
+        <button class="filter-btn" onclick="filterGallery('events')">Events</button>
+      </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="gallery-section">
+      <div class="container">
+        <div class="gallery-grid" id="galleryGrid">
+
+          <!-- ========== EDUCATION ========== -->
+          <div class="gallery-item" data-category="education" onclick="openLightbox(this)">
+            <img src="images/programs/education-literacy.jpg" alt="Education and Literacy">
+            <div class="overlay">
+              <h4>Mobile Literacy Class</h4>
+              <p>Amani Community School in action</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="education" onclick="openLightbox(this)">
+            <img src="images/impact/early-grade-learners.jpg" alt="Early Grade Learners">
+            <div class="overlay">
+              <h4>Early Grade Learners</h4>
+              <p>Children benefiting from RCS project</p>
+            </div>
+          </div>
+
+          <!-- ========== PEACEBUILDING ========== -->
+          <div class="gallery-item" data-category="peace" onclick="openLightbox(this)">
+            <img src="images/programs/peacebuilding-gbv.jpeg" alt="16 Days of Activism">
+            <div class="overlay">
+              <h4>16 Days of Activism</h4>
+              <p>Standing against gender-based violence</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="peace" onclick="openLightbox(this)">
+            <img src="images/programs/activism.jpeg" alt="Activism Event">
+            <div class="overlay">
+              <h4>Sub-County Activism Event</h4>
+              <p>Amani CBO hosting community activism</p>
+            </div>
+          </div>
+
+          <!-- ========== ENVIRONMENT ========== -->
+          <div class="gallery-item" data-category="environment" onclick="openLightbox(this)">
+            <img src="images/programs/environment-trees.jpg" alt="Tree Nursery">
+            <div class="overlay">
+              <h4>Tree Nursery</h4>
+              <p>Environmental conservation project</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="environment" onclick="openLightbox(this)">
+            <img src="images/hero/mt-elgon-topography.jpg" alt="Mt. Elgon">
+            <div class="overlay">
+              <h4>Mt. Elgon Landscape</h4>
+              <p>Kopsiro area topography</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="environment" onclick="openLightbox(this)">
+            <img src="images/hero/mt-elgon-crisis.jpg" alt="Mt. Elgon Communities">
+            <div class="overlay">
+              <h4>The Landscape We Serve</h4>
+              <p>Communities in Mt. Elgon region</p>
+            </div>
+          </div>
+
+          <!-- ========== AGRICULTURE ========== -->
+          <div class="gallery-item" data-category="agriculture" onclick="openLightbox(this)">
+            <img src="images/impact/livestock-farmers.jpg" alt="Livestock Farmers">
+            <div class="overlay">
+              <h4>Livestock Farmers</h4>
+              <p>Climate-smart farmers group with Egerton University</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="agriculture" onclick="openLightbox(this)">
+            <img src="images/impact/biochar-livestock.jpg" alt="Biochar Feeding">
+            <div class="overlay">
+              <h4>Biochar Innovation</h4>
+              <p>Livestock fed with Biochar as part of climate programs</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="agriculture" onclick="openLightbox(this)">
+            <img src="images/impact/egerton-partnership.jpg" alt="Egerton Partnership">
+            <div class="overlay">
+              <h4>Egerton University Partnership</h4>
+              <p>Mr. Korir and agricultural officers during Biochar research</p>
+            </div>
+          </div>
+
+          <!-- ========== TEAM ========== -->
+          <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+            <img src="images/team/alex-kiptorus.jpg" alt="Alex Kiptorus">
+            <div class="overlay">
+              <h4>Mr. Alex Kiptorus</h4>
+              <p>Director & Founder, Amani CBO</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+            <img src="images/impact/alex-conference.jpg" alt="Alex at Conference">
+            <div class="overlay">
+              <h4>Director at EFA Conference</h4>
+              <p>Mr. Alex Kiptorus at 2026 Education for All conference</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+            <img src="images/team/esther-wafula.jpg" alt="Esther Wafula">
+            <div class="overlay">
+              <h4>Madam Esther Wafula</h4>
+              <p>Assessment & Learning Camp</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-category="team" onclick="openLightbox(this)">
+            <img src="images/team/racheal-bera.jpg" alt="Racheal Bera">
+            <div class="overlay">
+              <h4>Madam Racheal Bera</h4>
+              <p>Using Nyansapo AI for literacy assessment</p>
+            </div>
+          </div>
+
+          <!-- ========== EVENTS ========== -->
+          <div class="gallery-item" data-category="events" onclick="openLightbox(this)">
+            <img src="images/impact/efa-conference.jpg" alt="EFA Conference">
+            <div class="overlay">
+              <h4>Education for All 2025</h4>
+              <p>Conference organized by Elimu Yetu Coalition</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <button class="lightbox-nav lightbox-prev" onclick="changeImage(-1)">&#10094;</button>
+      <button class="lightbox-nav lightbox-next" onclick="changeImage(1)">&#10095;</button>
+      <img src="" alt="" id="lightboxImg">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Amani CBO</h4>
+          <ul>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="about.html">Vision</a></li>
+            <li><a href="about.html">Team</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Programs</h4>
+          <ul>
+            <li><a href="programs.html">Education</a></li>
+            <li><a href="programs.html">Peace</a></li>
+            <li><a href="programs.html">Environment</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get Involved</h4>
+          <ul>
+            <li><a href="get-involved.html">Donate</a></li>
+            <li><a href="get-involved.html">Volunteer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li>Kopsiro, Bungoma</li>
+            <li>amanicbokops@yahoo.com</li>
+            <li>+254 721 607 597</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span class="current-year">2025</span> Amani Community Based Organization.</p>
+        <p style="margin-top: 1rem">🌿 youth-driven · community-led · since 2002</p>
+      </div>
+    </footer>
+
+    <script>
+      // Filter Gallery
+      function filterGallery(category) {
+        const items = document.querySelectorAll('.gallery-item');
+        const buttons = document.querySelectorAll('.filter-btn');
+
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+
+        items.forEach(item => {
+          if (category === 'all' || item.dataset.category === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      }
+
+      // Lightbox
+      let currentImageIndex = 0;
+      let visibleItems = [];
+
+      function openLightbox(element) {
+        visibleItems = Array.from(document.querySelectorAll('.gallery-item')).filter(
+          item => item.style.display !== 'none'
+        );
+        currentImageIndex = visibleItems.indexOf(element);
+
+        const img = element.querySelector('img');
+        const title = element.querySelector('h4').textContent;
+        const desc = element.querySelector('p').textContent;
+
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightboxCaption').textContent = title + ' — ' + desc;
+        document.getElementById('lightbox').classList.add('active');
+      }
+
+      function closeLightbox() {
+        document.getElementById('lightbox').classList.remove('active');
+      }
+
+      function changeImage(direction) {
+        currentImageIndex += direction;
+        if (currentImageIndex < 0) currentImageIndex = visibleItems.length - 1;
+        if (currentImageIndex >= visibleItems.length) currentImageIndex = 0;
+
+        const item = visibleItems[currentImageIndex];
+        const img = item.querySelector('img');
+        const title = item.querySelector('h4').textContent;
+        const desc = item.querySelector('p').textContent;
+
+        document.getElementById('lightboxImg').src = img.src;
+        document.getElementById('lightboxCaption').textContent = title + ' — ' + desc;
+      }
+
+      // Close on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') changeImage(-1);
+        if (e.key === 'ArrowRight') changeImage(1);
+      });
+
+      // Dynamic year
+      document.querySelector('.current-year').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

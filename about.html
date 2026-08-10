@@ -258,6 +258,66 @@
         box-shadow: var(--shadow);
       }
 
+      /* Team section */
+      .team-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+      .team-card {
+        background: white;
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        text-align: center;
+        transition: transform 0.3s;
+      }
+      .team-card:hover {
+        transform: translateY(-8px);
+      }
+      .team-card img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+      }
+      .team-card-info {
+        padding: 1.5rem;
+      }
+      .team-card-info h4 {
+        font-size: 1.2rem;
+        color: var(--green-deep);
+        margin-bottom: 0.3rem;
+      }
+      .team-card-info p {
+        color: var(--bark);
+        font-size: 0.95rem;
+      }
+
+      /* Contact card with photo */
+      .contact-person {
+        display: grid;
+        grid-template-columns: 180px 1fr;
+        gap: 2rem;
+        align-items: center;
+      }
+      .contact-person img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 4px solid var(--warm-clay);
+      }
+      @media (max-width: 600px) {
+        .contact-person {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .contact-person img {
+          margin: 0 auto;
+        }
+      }
+
       /* footer */
       footer {
         background: #1f3b28;
@@ -315,9 +375,10 @@
         }
       }
     </style>
-  </head>
+  <base target="_blank">
+</head>
   <body>
-    <!-- ========== HEADER (exact same format) ========== -->
+    <!-- ========== HEADER ========== -->
     <header>
       <div class="header-container">
         <div class="logo">
@@ -355,7 +416,7 @@
       </div>
     </header>
 
-    <!-- ========== PAGE HEADER : ABOUT US ========== -->
+    <!-- ========== PAGE HEADER ========== -->
     <section class="page-header">
       <h1>About Amani CBO</h1>
       <p style="font-size: 1.3rem; max-width: 700px; margin: 1rem auto">
@@ -364,9 +425,9 @@
       </p>
     </section>
 
-    <!-- ========== ABOUT CONTENT – EXACTLY FROM THE DOCUMENT ========== -->
+    <!-- ========== ABOUT CONTENT ========== -->
     <main class="container">
-      <!-- Organizational background (first block) -->
+      <!-- Organizational background -->
       <div class="two-col">
         <div>
           <span class="impact-pill">since 2002</span>
@@ -398,23 +459,12 @@
             some projects also having a national impact.
           </p>
         </div>
-        <div
-          style="
-            background: #b0bc9e;
-            height: 380px;
-            border-radius: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #1d4a2a;
-            box-shadow: inset 0 0 0 4px #f3e2cf;
-          "
-        >
-          📸 Kopsiro landscape / team photo
+        <div style="border-radius: 80px; overflow: hidden; height: 380px; box-shadow: inset 0 0 0 4px #f3e2cf;">
+          <img src="images/hero/mt-elgon-topography.jpg" alt="Mt. Elgon landscape where Amani CBO operates" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
       </div>
 
-      <!-- Vision & Mission (exact wording) -->
+      <!-- Vision & Mission -->
       <div
         style="
           background: var(--cream);
@@ -447,7 +497,7 @@
         </div>
       </div>
 
-      <!-- Core values (exact from doc) -->
+      <!-- Core values -->
       <div style="margin: 4rem 0">
         <span class="impact-pill">what guides us</span>
         <h2 class="section-title">Core Values</h2>
@@ -460,7 +510,7 @@
         </div>
       </div>
 
-      <!-- Target communities / geographic focus (exact copy) -->
+      <!-- Target communities -->
       <div class="geo-tag" style="margin: 3rem 0">
         <h3 style="font-size: 1.8rem; color: #2c4b2c">🌍 Where we work</h3>
         <p style="font-size: 1.2rem">
@@ -473,7 +523,7 @@
         </p>
       </div>
 
-      <!-- Timeline / key milestones (since 2002 – illustrative, drawn from profile) -->
+      <!-- Timeline -->
       <h2 class="section-title" style="margin-top: 5rem">
         Our journey of impact
       </h2>
@@ -501,7 +551,36 @@
         </div>
       </div>
 
-      <!-- Governance & contact person (exact from doc) -->
+      <!-- Our Team -->
+      <div style="margin: 5rem 0">
+        <span class="impact-pill">our people</span>
+        <h2 class="section-title">Meet the Team</h2>
+        <div class="team-grid">
+          <div class="team-card">
+            <img src="images/team/alex-kiptorus.jpg" alt="Mr. Alex Kiptorus">
+            <div class="team-card-info">
+              <h4>Mr. Alex Kiptorus</h4>
+              <p>Director & Founder</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="images/team/esther-wafula.jpg" alt="Madam Esther Wafula">
+            <div class="team-card-info">
+              <h4>Madam Esther Wafula</h4>
+              <p>Assessment & Learning</p>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="images/team/racheal-bera.jpg" alt="Madam Racheal Bera">
+            <div class="team-card-info">
+              <h4>Madam Racheal Bera</h4>
+              <p>Nyansapo AI Literacy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Governance & contact person -->
       <div style="margin: 5rem 0">
         <span class="impact-pill">governance</span>
         <h2 class="section-title">Membership & leadership</h2>
@@ -522,32 +601,37 @@
             box-shadow: var(--shadow);
           "
         >
-          <h3 style="color: var(--green-deep)">Contact person</h3>
-          <p style="font-size: 1.3rem; font-weight: 600">
-            Mr. Alex Kiptorus, Project Coordinator & Founder
-          </p>
-          <p>
-            📞 +254 721 607 597 / +254 721 674 834 · ✉️
-            <a href="mailto:kiptorus.alex@gmail.com" style="color: #4f6b4a"
-              >kiptorus.alex@gmail.com</a
-            >
-          </p>
-          <p style="margin-top: 1rem">
-            📍 Headquarters: Sabaot Bible Translation and Literacy Centre
-            (SBTL), Kopsiro-Chepyuk Road, opposite the District Officer's
-            offices, Kopsiro Division. P.O. Box 337, Chwele-50202.
-          </p>
-          <p>
-            📧
-            <a href="mailto:amanicbokops@yahoo.com" style="color: #4f6b4a"
-              >amanicbokops@yahoo.com</a
-            >
-            · Facebook: Amani CBO
-          </p>
+          <div class="contact-person">
+            <img src="images/team/alex-kiptorus.jpg" alt="Mr. Alex Kiptorus">
+            <div>
+              <h3 style="color: var(--green-deep)">Contact person</h3>
+              <p style="font-size: 1.3rem; font-weight: 600">
+                Mr. Alex Kiptorus, Project Coordinator & Founder
+              </p>
+              <p>
+                📞 +254 721 607 597 / +254 721 674 834 · ✉️
+                <a href="mailto:kiptorus.alex@gmail.com" style="color: #4f6b4a"
+                  >kiptorus.alex@gmail.com</a
+                >
+              </p>
+              <p style="margin-top: 1rem">
+                📍 Headquarters: Sabaot Bible Translation and Literacy Centre
+                (SBTL), Kopsiro-Chepyuk Road, opposite the District Officer's
+                offices, Kopsiro Division. P.O. Box 337, Chwele-50202.
+              </p>
+              <p>
+                📧
+                <a href="mailto:amanicbokops@yahoo.com" style="color: #4f6b4a"
+                  >amanicbokops@yahoo.com</a
+                >
+                · Facebook: Amani CBO
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
-      <!-- Partners & networks (brief) – to match profile -->
+      <!-- Partners -->
       <div
         style="
           text-align: center;
@@ -574,7 +658,7 @@
       </div>
     </main>
 
-    <!-- ========== FOOTER (exact same format as original) ========== -->
+    <!-- ========== FOOTER ========== -->
     <footer>
       <div class="footer-grid">
         <div class="footer-col">
@@ -623,10 +707,8 @@
       </div>
     </footer>
 
-    <!-- small script for mobile menu & year -->
     <script>
       (function () {
-        // mobile toggle
         const mobileBtn = document.getElementById("mobileMenu");
         const navUl = document.querySelector("#mainNav");
         if (mobileBtn && navUl) {
@@ -634,7 +716,6 @@
             navUl.classList.toggle("active");
           });
         }
-        // dynamic year
         document.getElementById("currentYear").textContent =
           new Date().getFullYear();
       })();
